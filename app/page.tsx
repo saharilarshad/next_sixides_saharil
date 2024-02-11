@@ -279,13 +279,14 @@ export default function Home() {
       {openModal &&
         <div className="absolute bg-[#42414d] bg-opacity-60 justify-center mx-auto top-0 bottom-0 left-0 right-0 h-full w-full">
 
-          <div ref={modalRef} className="h-[35rem] w-[55rem] bg-gradient-to-l from-gray-700 via-gray-900 to-black flex items-center mx-auto mt-28 overflow-y-auto">
-            <div className="flex flex-col gap-4 items-center justify-center mx-auto">
+          <div ref={modalRef} className="min-h-[35rem] w-[55rem] bg-gradient-to-l from-gray-700 via-gray-900 to-black flex items-center mx-auto mt-28 overflow-y-auto">
+            <div className="flex flex-col gap-4 items-center justify-center mx-auto h-full">
 
               <h1 className="text-white text-4xl font-bold">{getMovie?.title}</h1>
-              <div className="w-[48rem] h-[23rem] flex items-center justify-center mx-auto bg-red-500">
-                <Image src={`https://image.tmdb.org/t/p/w500${getMovie?.poster_path}`} height={150} width={150} alt={getMovie?.title} className="w-full h-full p-2 rounded-lg" />
+              <div className="w-1/2 h-[17rem] flex items-center justify-center mx-auto bg-red-500">
+                <Image src={`https://image.tmdb.org/t/p/w500${getMovie?.poster_path}`} height={100} width={100} alt={getMovie?.title} className="w-full h-full p-2 rounded-lg" />
               </div>
+              <p className="text-slate-100 p-2 mx-4">{getMovie?.overview}</p>
               <span className="text-white text-lg">{new Date(getMovie?.release_date).toLocaleDateString()}</span>
               <div className="p-2 mx-4">
                 {getCast && getCast?.cast.slice(0, 7).map(ct => (
